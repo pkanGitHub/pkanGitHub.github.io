@@ -44,6 +44,7 @@ A friend of mine was explaining in a interesting way, a way that can be easily r
 
 With Pizza Scenario...
 
+(trying to find out why screenshot didn't show...)
 ![](img/Async&Sync.png)
 
 Okay! So the main difference is with asynchronous, while you wait for the pizza to be made, you can do other task, but with synchronous, you have to wait for the pizza to be made before you can do other task.
@@ -57,7 +58,7 @@ static async loadAllPets(category) {
   let allPets = await request.json()
 }
 ```
-`async await` is the same as `.then()` because none of the code inside `.then()` will run until the promise is resolved. The difference is instead having to put code inside of `.then()`, you can just push it underneath. So when the execution hits the await it will start the asynchronous code and it will skip all the rest of the code underneath the await inside the async function and continue or finish executing all of the synchronous code left in your application.
+`async await` is the same as `.then()` because none of the code inside `.then()` will run until the promise is resolved. The difference is instead having to put code inside of `.then()`, you can just put it underneath. So when the execution hits the await it will start the asynchronous code and it will skip all the rest of the code underneath the await inside the async function and continue or finish executing all of the synchronous code left in your application.
 
 ## To Conclude
 I think this project was hard, due to the fact that Javascript is so powerful, but the syntax are really confusing comparing to other language that we have been using. And because JS was already hard enough that we were using it to make our first js project along with using Rails that is only for backend. It took me a lot of time trying to understand how to get the data from the backend using Javascript. It was really challenging.  
