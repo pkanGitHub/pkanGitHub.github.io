@@ -44,7 +44,7 @@ A friend of mine was explaining in a interesting way, a way that can be easily r
 
 With Pizza Scenario...
 
-![](https://github.com/pkanGitHub/pkanGitHub.github.io/blob/master/_posts/img/Async&Sync.png?raw=true)
+![](https://github.com/pkanGitHub/pkanGitHub.github.io/blob/master/_posts/img/Async%26Sync.png)
 
 Okay! So the main difference is with asynchronous, while you wait for the pizza to be made, you can do other task, but with synchronous, you have to wait for the pizza to be made before you can do other task.
 
