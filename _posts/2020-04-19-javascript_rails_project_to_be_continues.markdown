@@ -1,25 +1,62 @@
 ---
 layout: post
-title:      "JavaScript + Rails Project(To Be Continues...)"
+title:      "JavaScript + Rails Project"
 date:       2020-04-20 02:12:49 +0000
 permalink:  javascript_rails_project_to_be_continues
 ---
 
 
-Taking lesson from previous project with rails, I started to think about topic 3 days before the project weeks start while still catching up lessons (didn't get to any of JS OO). From all of examples given in the project resources, I was thinking to make a small interactive game, got all the sketches made with draw.io, and model decided, and thought it to be a SPA, stands for Single Page App, and which it is,  but I was told that the game I sketched out will not need a backend to store information..., so there goes my 3 days early. After then, I was stuck in a concept of how is it going to be a SPA without the user login (to store data?) Like back in our project 2(Sinatra) and project 3(Rails), both of them have user login, and it make perfect sense to not want other people to access and modify your data. Then I literaly spent first week of project week figuring out what exactly is a SPA? Other than most given answer (Google Drive, Google Map, Facebook... etc) still was not helping. I guess what exactly I was looking for is a much simpler webpage to identify it. 
+With the Rails and Javascript project, I have decided to make a application for re-homing pets. This application was only for owners to post a image, their name, age, health condition, and the owner's information. There was not a option for the other user to adopt simply because I didn't want to make this starter application too complicated while still getting used to making a first time application with Javascript frontend and Rail as an API. 
 
-The next thing struggles me was how can I have it with just "ONE" html. At this point, it's really the time to show your skill to manipulate the DOM. Asking the DOM to pull up some html when clicking onto a button and such. And yes the most confusing part of a SPA is that you can still have multiple page like, but also yes, you only write it inside of 1 html. 
+In this project, I only needed two models, a pet model and a user model with
+```ruby
+# user model
+has_many :pets
 
-I am still working on the project as I only got to get the minimum output of this project, which is having the user to input the form, and have a card showing on the page accordingly. So I can't speak in full yet. However, "The HARDEST "part of the beginning of the project was... 
+# pet model
+belongs_to :user
+```
+In this Project, I have decided only use one controller because this is mainly a app for pets, and while my cards will only display pet's information with just a little bit of user information with it. Which I just nested user information to the form.
 
-1. You know how to work with Rails (but you can't have views in it). 
-2. You know how basic javascript works (but you are trying to connect to the backend and get data from the Rails API).
-3. You know how to make a beautiful looking html with styling (but since you didn't get to practice that many times while playing catching up)
+## Single Page App (SPA)
 
-Simply, putting them all together was a struggle.
+This application was a little different from the Rails project because we don't use multiple html for the application, but instead with the requirement, we will be building a SPA. This was a struggle for me. I said struggle, but it's more like a confusion. I tried to look up examples what define as a SPA on the web, but a lot of them looks like it's a MPA (Multiple Page App), but they are actually SPA. Therefore defining the term SPA took me a while. I do know SPA is made with only one html file, and use DOM Event Listener to manipulate it. 
 
-Finally at the end of the first project week ( after sketched out and planned for 3 other topics), I finally decided what app to make that I will not need a user login. Since I like animals and I have 4 wonderful naughty ferrets, I decided to make a Pet Rehome Application (I chose it to be a rehome app simply because I see a lot of ferret owner trying to rehome their lil ones due to many reasons). 
+### How I learned to define them
+I have learned that React was created by Facebook while finding out what is a SPA, and that is what make most of the SPA out there nowadays. However, since I am not there yet, and know nothing about React just yet. I have also learned how to define what is a SPA by looking at the Dev Tool (I used chrome), since most of the time you don't get to see the source code of the web page on the internet. So when I open up a site, by looking at their "Network" in the Dev Tool, most of the website will have multiple links, so to test it out, you simply first refresh the page while having "Network" tab open and scroll to the top of the list and tries to click on other link to see how the network react to it. If the network didn't refresh but instead it's more like keep adding onto the list, it'll be a SPA, but if it refresh the first couple item on list, then it is using multiple pages like how our Rails' App was like. 
 
-I will update on this blog as soon as I finish the project.
+## Fetch and AJAX
+
+### What is AJAX? 
+
+AJAX = Asynchronous Javascript And XML
+AJAX allows web pages to be 
+* Updated without reloading
+* Request and receive data from a server
+* Send data to a server behind the scene
+
+And we learn to use fetches to accomplish that in our project.
+
+All Fetches are asynchronous. So what is asynchronous, and how is it different from synchronous? 
+A friend of mine was explaining in a interesting way, a way that can be easily remembered: 
+
+With Pizza Scenario...
+
+![](img/Async&Sync.png)
+
+Okay! So the main difference is with asynchronous, while you wait for the pizza to be made, you can do other task, but with synchronous, you have to wait for the pizza to be made before you can do other task.
 
 
+In my project, instead of using `.then()` with fetches like how the labs have us practiced, I have learned a new way(during project week) to handle promises which is using `async await` for all my GET request. Async await looks more like synchronous JS because with `await`, JS will not run any of the code underneath the await(in it's same scope) until the promise is resolved with a value, and with await, you will have to put async on your function, for example:
+
+```javascript
+static async loadAllPets(category) {
+  let request = await fetch("http://localhost:3000/pets")
+  let allPets = await request.json()
+}
+```
+`async await` is the same as `.then()` because none of the code inside `.then()` will run until the promise is resolved. The difference is instead having to put code inside of `.then()`, you can just push it underneath. So when the execution hits the await it will start the asynchronous code and it will skip all the rest of the code underneath the await inside the async function and continue or finish executing all of the synchronous code left in your application.
+
+## To Conclude
+I think this project was hard, due to the fact that Javascript is so powerful, but the syntax are really confusing comparing to other language that we have been using. And because JS was already hard enough that we were using it to make our first js project along with using Rails that is only for backend. It took me a lot of time trying to understand how to get the data from the backend using Javascript. It was really challenging.  
+ 
