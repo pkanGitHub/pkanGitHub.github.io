@@ -30,7 +30,9 @@ I have learned that React was created by Facebook while finding out what is a SP
 ### What is AJAX? 
 
 AJAX = Asynchronous Javascript And XML
-AJAX allows web pages to be 
+
+AJAX allows web pages to be:
+
 * Updated without reloading
 * Request and receive data from a server
 * Send data to a server behind the scene
